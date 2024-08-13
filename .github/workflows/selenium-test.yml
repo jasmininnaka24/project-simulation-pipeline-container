@@ -28,8 +28,8 @@ jobs:
 
       - name: Run all tests
         run: |
-          pytest --tb=short --html=tests_results/test_report.html --css=report_templates/custom_report_template.html
-          # Run all tests and generate an HTML report in the results directory with custom styles
+          pytest --tb=short --html=tests_results/test_report.html --self-contained-html
+          # Run all tests and generate an HTML report in the results directory
 
       - name: List files in results directory
         run: |
