@@ -1,4 +1,4 @@
-name: Docker Image PR Check
+name: Docker Image and Deployment
 
 on:
   pull_request:
@@ -34,9 +34,8 @@ jobs:
       run: |
         docker run --rm ghcr.io/jasmininnaka24/project-simulation-pipeline-container:pr-${{ github.event.pull_request.number }} some-test-command
 
-    # Optionally: Scan Docker image for vulnerabilities
-    - name: Scan Docker image
-      uses: aquasecurity/trivy-action@v0.0.12
+    - name: Scan Docker image with Grype
+      uses: anchore/grype-action@v0.0.10
       with:
-        image-ref: ghcr.io/jasmininnaka24/project-simulation-pipeline-container:pr-${{ github.event.pull_request.number }}
+        image: ghcr.io/jasmininnaka24/project-simulation-pipeline-container:pr-${{ github.event.pull_request.number }}
 
