@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/customization.css" />
+    <script src="./js/functionalities.js" defer></script>
+    <script src="./js/callback.js" defer></script>
+    <script src="./js/app.js" defer></script>
+    <title>Ice Cream Maker</title>
+  </head>
+  <body class="bg-lightBlue text-darkGrayishBlue quicksand-400">
+    <h1
+      id="home-text"
+      class="text-center uppercase font-bold container mx-auto pt-12 text-4xl text-darkGrayishBlue"
+    >
+     Hola
+    </h1>
+    <h1
+      id="home-text"
+      class="text-center uppercase font-bold container mx-auto pt-12 text-4xl text-darkGrayishBlue"
+    >
+      Choose your type of ice cream 🍨
+    </h1>
+    <section id="boxes">
+      <div
+        id="first-box"
+        class="flex flex-col max-widthh mx-auto lg:flex-row my-10 justify-evenly items-center px-20 space-x-0 space-y-2 lg:space-y-2"
+      >
+        <div
+          id="ice-cream-img"
+          class="bg-lightPink lg:w-1/2 rounded-lg drop-shadow-xl"
+        >
+          <img src="./img/ice_cream_hero.gif" class="w-100%" alt="" />
+        </div>
+        <div
+          id="box2"
+          class="bg-lightPink p-10 lg:w-1/2 rounded-lg drop-shadow-xl"
+        >
+          <form class="">
+            <div class="flex flex-col mb-10">
+              <label class="text-2xl quicksand-700 mb-3" for="personname"
+                >Your Name</label
+              >
+              <input
+                required
+                type="text"
+                placeholder="Enter your name"
+                name="personname"
+                id="personname"
+                class="rounded-full bg-white text-darkGrayishBlue p-2 px-6 outline-none drop-shadow-md"
+              />
+              <p
+                class="config-error1 hidden text-darkGrayishPink font-bold fixed px-5"
+              >
+                Please enter a valid name
+              </p>
+            </div>
+            <div class="flex flex-col">
+              <label class="text-2xl quicksand-700 mb-4" for="icecreamInp"
+                >Type of Ice cream</label
+              >
+              <input
+                name="icecreamInp"
+                id="icecreamInp"
+                type="text"
+                placeholder="Cone, Cup, or Stick"
+                class="rounded-full bg-lightPink text-darkGrayishBlue p-2 px-6 outline-none drop-shadow-md"
+                required
+              />
+              <p
+                class="config-error2 hidden text-darkGrayishPink font-bold fixed px-5"
+              >
+                Please select a valid option
+              </p>
+              <p
+                class="config-error3 text-darkGrayishPink font-bold fixed px-5"
+              ></p>
+            </div>
+            <div class="flex justify-center lg:justify-start mt-12">
+              <button
+                type="submit"
+                id="start-btn"
+                href="#"
+                class="bg-darkGrayishBlue px-14 py-3 rounded-full quicksand-700 uppercase md-shadow-xl hover:bg-lightBlueSup text-white"
+              >
+                Start
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="boxes2 hidden text-center">
+      <h1
+        class="home-text text-center uppercase font-bold container mx-auto pt-12 text-4xl text-darkGrayishBlue"
+      >
+        Enjoy your Ice Cream 🍨
+      </h1>
+      <div
+        id="second-box"
+        class="flex flex-col max-widthh mx-auto lg:flex-row my-10 justify-evenly items-center px-20 space-x-0 space-y-2 lg:space-y-2"
+      >
+        <div
+          id="box3"
+          class="bg-lightPink p-10 lg:w-1/2 rounded-lg drop-shadow-xl"
+        >
+          <h1 class="font-bold text-2xl">
+            Hello, <span id="person-name">PERSON NAME</span>!
+          </h1>
+          <p class="text-lg my-1">---</p>
+          <div class="space-y-2 text-center">
+            <p id="parg-1" class="text-lg"></p>
+            <p id="parg-2" class="text-lg"></p>
+            <p id="parg-3" class="text-lg"></p>
+            <p id="parg-4" class="text-lg"></p>
+            <p id="parg-5" class="text-lg"></p>
+            <p id="parg-6" class="text-lg"></p>
+            <p id="parg-7" class="text-lg"></p>
+          </div>
+        </div>
+        <div
+          id="ice-cream-img2"
+          class="bg-none lg:w-1/2 rounded-lg drop-shadow-xl"
+        >
+          <div class="cone-holder hidden">
+            <img src="./img/cone.gif" alt="" />
+          </div>
+          <div class="cup-holder hidden">
+            <img src="./img/cup.gif" alt="" />
+          </div>
+          <div class="stick-holder hidden">
+            <img src="./img/stick.gif" alt="" />
+          </div>
+        </div>
+        <button class="mt-6">
+          <a href=""></a>
+        </button>
+      </div>
+
+    </section>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Custom Pytest Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .report-title {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .test-summary {
+            margin: 20px;
+        }
+        .passed {
+            color: green;
+        }
+        .failed {
+            color: red;
+        }
+        /* Add more custom styles as needed */
+    </style>
+</head>
+<body>
+    <div class="report-title">
+        <h1>Custom Pytest Report</h1>
+    </div>
+    <div class="test-summary">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
