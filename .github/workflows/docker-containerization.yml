@@ -1,12 +1,9 @@
 name: Docker Image CI for GHCR
 
 on:
-  pull_request:
-    branches:
-      - main  # or the branch you want to trigger on
   push:
     branches:
-      - main  # or the branch you want to trigger on
+      - main  # Trigger on push to main branch
 
 jobs:
   build_and_publish:
@@ -18,7 +15,7 @@ jobs:
 
       - name: Log in to GitHub Container Registry
         run: |
-          docker login --username ${{ secrets.GH_USERNAME }} --password ${{ secrets.GH_PAT }} ghcr.io
+          echo ${{ secrets.GH_PAT }} | docker login ghcr.io -u ${{ secrets.GH_USERNAME }} --password-stdin
 
       - name: Build Docker image
         run: docker build . --tag ghcr.io/jasmininnaka24/project-simulation-pipeline-container:latest
