@@ -3,7 +3,7 @@ name: Docker Image CI for GHCR
 on:
   push:
     branches:
-      - main  # Trigger on push to main branch
+      - main  # Trigger on push to the main branch
 
 jobs:
   build_and_publish:
@@ -14,15 +14,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Log in to GitHub Container Registry
-        run: |
-          echo ${{ secrets.GH_PAT }} | docker login ghcr.io -u ${{ secrets.GH_USERNAME }} --password-stdin
+        run: echo ${{ secrets.GH_PAT }} | docker login ghcr.io -u ${{ secrets.GH_USERNAME }} --password-stdin
 
       - name: Build Docker image
         run: docker build . --tag ghcr.io/jasmininnaka24/project-simulation-pipeline-container:latest
 
       - name: Push Docker image
-        run: |
-          docker push ghcr.io/jasmininnaka24/project-simulation-pipeline-container:latest
+        run: docker push ghcr.io/jasmininnaka24/project-simulation-pipeline-container:latest
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
