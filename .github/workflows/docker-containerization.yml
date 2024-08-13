@@ -24,8 +24,11 @@ jobs:
           docker build --no-cache -t ghcr.io/jasmininnaka24/project-simulation-pipeline-container:latest .
 
       - name: Push Docker image
+        run: docker tag ghcr.io/jasmininnaka24/project-simulation-pipeline-container:latest ghcr.io/jasmininnaka24/project-simulation-pipeline-container:${{ github.run_number }}
+      
+      - name: Push Docker image
         run: docker push ghcr.io/jasmininnaka24/project-simulation-pipeline-container:latest
-
+      
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
