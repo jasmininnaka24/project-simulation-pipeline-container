@@ -1,4 +1,4 @@
-name: Selenium Testing
+name: Run Tests
 
 on:
   push:
@@ -30,3 +30,10 @@ jobs:
         run: |
           pytest --tb=short --html=tests_results/test_report.html --self-contained-html
           # Run all tests and generate an HTML report in the results directory
+
+      - name: Upload test report as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-report
+          path: tests_results/test_report.html
+          # Upload the test report as an artifact
