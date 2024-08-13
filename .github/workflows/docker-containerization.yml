@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main  # or the branch you want to trigger on
+  pull_request:
+    branches:
+      - main  # or the branch you want to trigger on
 
 jobs:
   build_and_publish:
