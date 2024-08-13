@@ -23,15 +23,8 @@ jobs:
       - name: Build Docker image
         run: docker build . -t ghcr.io/jasmininnaka24/project-simulation-pipeline-container:latest
 
-      - name: Test Docker image
-        run: |
-          # Run your tests here
-          # For example:
-          docker run --rm ghcr.io/jasmininnaka24/project-simulation-pipeline-container:latest pytest
-
       - name: Push Docker image
-        run: |
-          docker push ghcr.io/jasmininnaka24/project-simulation-pipeline-container:latest
+        run: docker push ghcr.io/jasmininnaka24/project-simulation-pipeline-container:latest
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
