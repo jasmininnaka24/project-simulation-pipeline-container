@@ -18,10 +18,10 @@ jobs:
 
       - name: Log in to GitHub Container Registry
         run: |
-          echo "${{ secrets.GH_PAT }}" | docker login ghcr.io -u "${{ secrets.GH_USERNAME }}" --password-stdin
+          docker login --username ${{ secrets.GH_USERNAME }} --password ${{ secrets.GH_PAT }} ghcr.io
 
       - name: Build Docker image
-        run: docker build . -t ghcr.io/jasmininnaka24/project-simulation-pipeline-container:latest
+        run: docker build . --tag ghcr.io/jasmininnaka24/project-simulation-pipeline-container:latest
 
       - name: Test Docker image
         run: |
