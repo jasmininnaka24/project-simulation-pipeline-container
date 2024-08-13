@@ -1,0 +1,46 @@
+name: Run Tests
+
+on:
+  push:
+    branches:
+      - main  # Trigger this workflow on pushes to the main branch
+
+jobs:
+  test_and_report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'  # Specify the Python version you are using
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install selenium pytest pytest-html webdriver-manager
+
+      - name: Create test results directory
+        run: mkdir -p tests_results  # Create the directory to store test results
+
+      - name: Run all tests
+        run: |
+          pytest --tb=short --html=tests_results/test_report.html --self-contained-html
+          # Run all tests and generate an HTML report in the results directory
+
+      - name: List files in results directory
+        run: |
+          ls -l tests_results/  # List files in the results directory
+          cat tests_results/test_report.html || echo "Test report not found or empty"
+          # Display the content of the report to ensure it is generated
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: tests_results/
+          # Upload the results directory as an artifact to GitHub Actions
